@@ -1,0 +1,9 @@
+{
+    "name": "js-resume-parser",
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+        "pdfjs": "^2.4.7",
+        "pizzip": "^3.1.3"
+    }
+}
