@@ -1,7 +1,7 @@
-let PizZip = require("pizzip");
-let PDFJS = require("pdfjs");
-// PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.min.js`;
-
+import PizZip from "pizzip";
+import PDFJS from "egova-pdfjs-dist/build/pdf.js";
+console.log(PDFJS, PizZip);
+PDFJS.GlobalWorkerOptions.workerSrc = "egova-pdfjs-dist/pdf.worker.js";
 const getTextFromPDF = (pdfData) => {
   const loadingTask = PDFJS.getDocument({ data: pdfData });
   let extractedEmail = null;
@@ -158,19 +158,15 @@ function getText(content) {
 }
 
 function readDocFile(file) {
-  return (
-    new Promise() <
-    FormData >
-    ((res, rej) => {
-      const reader = new FileReader();
-      reader.onload = async ({ target: { result } }) => {
-        const content = result;
-        var text = getText(content);
-        res(extractResumeData(text));
-      };
-      reader.readAsBinaryString(file);
-    })
-  );
+  return new Promise((res, rej) => {
+    const reader = new FileReader();
+    reader.onload = async ({ target: { result } }) => {
+      const content = result;
+      var text = getText(content);
+      res(extractResumeData(text));
+    };
+    reader.readAsBinaryString(file);
+  });
 }
 
 function getBase64(file) {
@@ -218,4 +214,4 @@ function getDataFromText(text) {
   return extractResumeData(text);
 }
 
-module.exports = { getDataFromPDF, getDataFromDocx, getDataFromText };
+export { getDataFromPDF, getDataFromDocx, getDataFromText };
