@@ -170,21 +170,17 @@ function readDocFile(file) {
 }
 
 function getBase64(file) {
-  return (
-    (new Promise() < string) |
-    (ArrayBuffer >
-      ((res, rej) => {
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          res(reader.result);
-        };
-        reader.onerror = function (error) {
-          console.log("Error: ", error);
-          rej(error);
-        };
-      }))
-  );
+  return new Promise((res, rej) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      res(reader.result);
+    };
+    reader.onerror = function (error) {
+      console.log("Error: ", error);
+      rej(error);
+    };
+  });
 }
 
 function removeWhiteSpaces(str) {
