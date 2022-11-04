@@ -1,7 +1,7 @@
 import PizZip from "pizzip";
 import PDFJS from "egova-pdfjs-dist/build/pdf.js";
 console.log(PDFJS, PizZip);
-PDFJS.GlobalWorkerOptions.workerSrc = "egova-pdfjs-dist/pdf.worker.js";
+PDFJS.GlobalWorkerOptions.workerSrc = "egova-pdfjs-dist/build/pdf.worker.js";
 const getTextFromPDF = (pdfData) => {
   const loadingTask = PDFJS.getDocument({ data: pdfData });
   let extractedEmail = null;
