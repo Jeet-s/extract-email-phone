@@ -1,1 +1,1 @@
-# extract-email-phone
+# js-resume-parser
