@@ -1,11 +1,10 @@
 {
     "name": "js-resume-parser",
-    "version": "1.0.6",
+    "version": "1.0.10",
     "main": "index.js",
     "type": "module",
     "dependencies": {
         "egova-pdfjs-dist": "^2.5.214",
-        "pdfjs": "^2.4.7",
         "pizzip": "^3.1.3"
     }
 }
